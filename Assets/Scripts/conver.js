@@ -4,11 +4,14 @@ import UnityEngine.UI;
 
 var lugia : Transform;
 private var lugiaAnim : Animator;
+var DDM : Transform;
+private var DDMAnim : Animator;
 var nowIndex : int = 0;
 var arr = [""];
 
 function Start () {
 	lugiaAnim = lugia.GetComponent(Animator);
+	DDMAnim = DDM.GetComponent(Animator);
 }
 
 function Update () {
@@ -17,7 +20,9 @@ function Update () {
 	}
 	
 	if(nowIndex==3)lugiaAnim.SetBool("born",true);
-	if(nowIndex==10)Application.LoadLevel(2);
+	if(nowIndex==8)DDMAnim.SetBool("born",true);
+	if(nowIndex==6)lugiaAnim.SetBool("born",false);
+	if(nowIndex==9)Application.LoadLevel(2);
 	
 	GetComponent(Text).text = arr[nowIndex];
 }
